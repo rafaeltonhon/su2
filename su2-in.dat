@@ -1,6 +1,5 @@
-16 16           ! lattice size space time
+5 5           ! lattice size space time
 2.300              ! beta
-10000 500        ! number of monte carlo sweeps number of thermalization sweeps
-6 6              ! maximum size of the wilson loops we want
+100 1        ! number of monte carlo sweeps number of thermalization sweeps
+5 5              ! maximum size of the wilson loops we want
 2            ! if 1 we print the configurations on the file suN-lattice
-300 ! number of correlation

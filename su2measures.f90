@@ -9,18 +9,18 @@ module su2measures
         w=ident()
         do i=1,a
             w=linkmult(w,u(n(1),n(2),n(3),n(4),mi,:))
-            if((a.eq.nr).and.(b.eq.nr)) print*,u(n(1),n(2),n(3),n(4),mi,:)
-            if((a.eq.nr).and.(b.eq.nr)) print*,n
-            if((a.eq.nr).and.(b.eq.nr)) print*,w
+            !if((a.eq.nr).and.(b.eq.nr)) print*,u(n(1),n(2),n(3),n(4),mi,:)
+            !if((a.eq.nr).and.(b.eq.nr)) print*,n
+            !if((a.eq.nr).and.(b.eq.nr)) print*,w
             n(mi)=n(mi)+1
             if(n(mi).gt.nr) n(mi)=1
         enddo
                 
         do i=1,b
             w=linkmult(w,u(n(1),n(2),n(3),n(4),ni,:))
-            if((a.eq.nr).and.(b.eq.nr)) print*,u(n(1),n(2),n(3),n(4),ni,:)
-            if((a.eq.nr).and.(b.eq.nr)) print*,n
-            if((a.eq.nr).and.(b.eq.nr)) print*,w
+            !if((a.eq.nr).and.(b.eq.nr)) print*,u(n(1),n(2),n(3),n(4),ni,:)
+            !if((a.eq.nr).and.(b.eq.nr)) print*,n
+            !if((a.eq.nr).and.(b.eq.nr)) print*,w
             n(ni)=n(ni)+1
             if(n(ni).gt.nr) n(ni)=1
         enddo
@@ -28,19 +28,19 @@ module su2measures
             n(mi)=n(mi)-1
             if(n(mi).lt.1) n(mi)=nr
             w=linkmult(w,dlink(u(n(1),n(2),n(3),n(4),mi,:)))
-            if((a.eq.nr).and.(b.eq.nr)) print*,u(n(1),n(2),n(3),n(4),mi,:)
-            if((a.eq.nr).and.(b.eq.nr)) print*,n
-            if((a.eq.nr).and.(b.eq.nr)) print*,w
+            !if((a.eq.nr).and.(b.eq.nr)) print*,u(n(1),n(2),n(3),n(4),mi,:)
+            !if((a.eq.nr).and.(b.eq.nr)) print*,n
+            !if((a.eq.nr).and.(b.eq.nr)) print*,w
         enddo
         do i=1,b
             n(ni)=n(ni)-1
             if(n(ni).lt.1) n(ni)=nr
             w=linkmult(w,dlink(u(n(1),n(2),n(3),n(4),ni,:)))
-            if((a.eq.nr).and.(b.eq.nr)) print*,u(n(1),n(2),n(3),n(4),ni,:)
-            if((a.eq.nr).and.(b.eq.nr)) print*,n
-            if((a.eq.nr).and.(b.eq.nr)) print*,w
+            !if((a.eq.nr).and.(b.eq.nr)) print*,u(n(1),n(2),n(3),n(4),ni,:)
+            !if((a.eq.nr).and.(b.eq.nr)) print*,n
+            !if((a.eq.nr).and.(b.eq.nr)) print*,w
         enddo
-        print*,''
+        !print*,''
         wilsonplanar=w(4)
     endfunction wilsonplanar
 
@@ -51,10 +51,8 @@ module su2measures
         real(kind=r8) :: sum
         integer(kind=i4) :: a,b, i, j, n(4), e1, e2, e3, e4, mu, nu
         ! we compute the loops w(a,b) and save the result
-        !do i=1,a
-        !do j=1,b
-        i=a
-        j=b
+        do i=1,a
+        do j=1,b
             sum=0.0_r8
             ! compute the mean wilson loop
             do e1=1,nr
@@ -83,8 +81,8 @@ module su2measures
             else
                 w(i,j)=sum/(12_r8*nt*nr**3) ! rectangular loops
             endif
-        !enddo
-        !enddo
+        enddo
+        enddo
     endsubroutine measurewilson
     
     
